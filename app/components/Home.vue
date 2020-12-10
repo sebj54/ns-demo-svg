@@ -5,24 +5,39 @@
         </ActionBar>
 
         <GridLayout>
-            <Label class="info">
-                <FormattedString>
-                    <Span class="fas" text.decode="&#xf135; "/>
-                    <Span :text="message"/>
-                </FormattedString>
-            </Label>
+            <StackLayout>
+                <Label class="info">
+                    <FormattedString>
+                        <Span class="fas" text.decode="&#xf135; "/>
+                        <Span :text="message"/>
+                    </FormattedString>
+                </Label>
+
+                <SvgColored :src="nativescriptSvg" />
+            </StackLayout>
         </GridLayout>
     </Page>
 </template>
 
 <script>
-  export default {
+import SvgColored from '~/components/SvgColored'
+import nativescriptSvg from '~/assets/svg/nativescript.svg'
+
+export default {
+    components: {
+        SvgColored,
+    },
+    data() {
+        return {
+            nativescriptSvg,
+        }
+    },
     computed: {
-      message() {
-        return "Blank {N}-Vue app";
-      }
+        message() {
+            return "Blank {N}-Vue app";
+        }
     }
-  };
+};
 </script>
 
 <style scoped lang="scss">

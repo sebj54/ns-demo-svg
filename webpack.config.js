@@ -281,6 +281,10 @@ module.exports = env => {
                     compiler: NsVueTemplateCompiler,
                 },
             },
+            {
+                test: /\.svg$/,
+                loader: "raw-loader",
+            },
             ],
         },
         plugins: [
